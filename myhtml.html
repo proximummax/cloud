@@ -1,0 +1,61 @@
+<html>
+<head>
+ 
+<style type="text/css">
+   body { margin: 0; }
+   #sidebar, #content { position: absolute; } 
+   #sidebar, #content { overflow: auto; padding: 10px; }
+   #header {
+    height: 80px; /* Высота слоя */
+    background: #FEDFC0; border-bottom: 2px solid #7B5427;
+   }
+   #header h1 { padding: 20px; margin: 0; }
+   #sidebar { 
+   
+    top: 82px; /* Расстояние от верхнего края */ 
+    bottom: 0; /* Расстояние снизу  */
+    left:700px;
+   }
+   #content {
+    top: 82px; /* Расстояние от верхнего края */
+    left: 50px; /* Расстояние от левого края */ 
+    bottom: 0; right: 0;
+   }
+  </style>
+  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#button').click(function(e) {  
+        var inputvalue = $("#input").val();
+        window.location.replace("http://localhost:8080/Cloud/Download?fileName="+inputvalue );
+    });
+});
+</script> 
+<link rel="stylesheet" href="mysite.css">
+ </head>
+
+<body>
+<div id="header"><h1>Application for downloading and uploading files!</h1></div>
+<div id="content">
+<form action="Download" method="post" enctype="multipart/form-data">
+<h2>Select file to download:    </h2><input type="file" name="fileName">
+<br><br>
+<input type="submit" value="Confirm file upload" style="height:50px;width:200px"/>
+</form>
+</div>
+<div id ="sidebar">
+<h2>All uploaded files</h2>
+<br>
+
+<iframe src="C:\Users\kazan\eclipse-workspace\files.txt" width="550" height="200" >
+   </iframe>
+<br>
+<h2>Enter the file name to download</h2>
+<br>
+<input type="text"  style="width: 400px" value="" id="input"/> 
+       <button type="button" id="button">Download</button>
+</div>
+
+</body>
+</html>
